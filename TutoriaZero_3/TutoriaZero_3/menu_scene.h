@@ -1,8 +1,11 @@
 #pragma once
 
 #include "scene.h";
+#include "scene_manager.h"
 
 #include <iostream>
+
+extern SceneManager scene_manager;
 
 class MenuScene: public Scene
 {
@@ -25,7 +28,13 @@ public:
 		outtextxy(10, 10, _T("Ö÷²Ëµ¥»æÍ¼ÄÚÈÝ"));
 	};
 
-	void on_input(ExMessage& msg) {};
+	void on_input(const ExMessage& msg) 
+	{
+		if (msg.message == WM_KEYDOWN)
+		{
+			scene_manager.switch_to(SceneManager::SceneType::Game);
+		}
+	};
 	
 	void on_exit() 
 	{

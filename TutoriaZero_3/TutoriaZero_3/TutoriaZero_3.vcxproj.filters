@@ -13,18 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\Scene">
+      <UniqueIdentifier>{40b2a36f-7841-4d29-8001-5f34b1f59cee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="scene_manager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game_scene.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="menu_scene.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="selector_scene.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="atlas.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>资源文件</Filter>
+      <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="scene.h">
-      <Filter>资源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="menu_scene.h">
-      <Filter>资源文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
