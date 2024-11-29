@@ -66,7 +66,7 @@ public:
 			}
 		}
 	}
-
+	    
 	void on_draw(int x, int y) const
 	{
 		putimage_alpha(x, y, atlas->get_image(idx_frame));
@@ -75,13 +75,14 @@ public:
 	void set_callback(std::function<void()> callback)
 	{
 		this->callback = callback;
-	}
-private:
+	} 
+
+private: 
 	int timer = 0;
 	int interval = 0;
 	int idx_frame = 0;
 	bool is_loop = true;
 	Atlas* atlas = nullptr;
 	std::function<void()> callback;
-
-};
+	 
+};     

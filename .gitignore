@@ -348,3 +348,26 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# 忽略 CLion 和 CMake 的临时文件
+*/.idea/                 # CLion 的项目配置文件夹
+*/cmake-build-debug/     # CLion 调试生成目录
+*/cmake-build-release/   # CLion 发布生成目录
+*/*.iml                  # IntelliJ 的模块文件
+*/*.log                  # 日志文件
+
+# 忽略构建输出
+*/build/
+*/bin/
+*/out/
+
+# 忽略编译生成文件
+*/*.o
+*/*.obj
+*/*.so
+*/*.dll
+*/*.exe
+
+# 忽略资源缓存文件
+*/*.png.cache
+*/*.tmp

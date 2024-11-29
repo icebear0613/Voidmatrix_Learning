@@ -1,6 +1,6 @@
 #pragma once
 
-#include "scene.h";
+#include "scene.h"
 
 extern Scene* menu_scene;
 extern Scene* game_scene;
@@ -46,9 +46,9 @@ public:
 		current_scene->on_entry();
 	}
 
-	void on_update()
+	void on_update(int delta)
 	{
-		current_scene->on_update();
+		current_scene->on_update(delta);
 	}
 
 	void on_draw()

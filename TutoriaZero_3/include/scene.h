@@ -9,7 +9,7 @@ public:
 	~Scene() = default;
 
 	virtual void on_entry() {};
-	virtual void on_update() 
+	virtual void on_update(int delta) 
 	{
 	
 	};

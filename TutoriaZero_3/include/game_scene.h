@@ -1,6 +1,6 @@
 #pragma once
 
-#include "scene.h";
+#include "scene.h"
 #include "scene_manager.h"
 
 #include <iostream>
@@ -13,17 +13,17 @@ public:
 
 	void on_entry()
 	{
-		std::cout << "½øÈëÓÎÏ·¾ÖÄÚ³¡¾°" << std::endl;
+		std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½" << std::endl;
 	}
 
-	void on_update()
+	void on_update(int delta)
 	{
-		std::cout << "ÓÎÏ·ÕýÔÚÔËÐÐ..." << std::endl;
+		std::cout << "ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..." << std::endl;
 	}
 
 	void on_draw()
 	{
-		outtextxy(10, 10, _T("ÓÎÏ·¾ÖÄÚ»æÍ¼ÄÚÈÝ"));
+		outtextxy(10, 10, _T("ï¿½ï¿½Ï·ï¿½ï¿½ï¿½Ú»ï¿½Í¼ï¿½ï¿½ï¿½ï¿½"));
 	}
 
 	void on_input(const ExMessage& msg)
@@ -36,9 +36,9 @@ public:
 
 	void on_exit()
 	{
-		std::cout << "ÓÎÏ·¾ÖÄÚÍË³ö" << std::endl;
+		std::cout << "ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½" << std::endl;
 	}
 
 private:
-	
+
 };

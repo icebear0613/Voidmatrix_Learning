@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <graphics.h>
+#include<iostream>
 
 class Atlas
 {
