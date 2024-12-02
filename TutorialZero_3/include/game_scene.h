@@ -21,7 +21,7 @@ public:
 		std::cout << "��Ϸ��������..." << std::endl;
 	}
 
-	void on_draw()
+	void on_draw(const Camera& camera)
 	{
 		outtextxy(10, 10, _T("��Ϸ���ڻ�ͼ����"));
 	}
