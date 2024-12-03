@@ -13,17 +13,17 @@ public:
 
 	void on_entry()
 	{
-		std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½" << std::endl;
+		std::cout << "ÓÎÏ·½çÃæ " << std::endl;
 	}
 
 	void on_update(int delta)
 	{
-		std::cout << "ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..." << std::endl;
+		std::cout << "ÓÎÏ·½çÃæ¸üĞÂing" << std::endl;
 	}
 
 	void on_draw(const Camera& camera)
 	{
-		outtextxy(10, 10, _T("ï¿½ï¿½Ï·ï¿½ï¿½ï¿½Ú»ï¿½Í¼ï¿½ï¿½ï¿½ï¿½"));
+		outtextxy(10, 10, _T("ÓÎÏ·½çÃæ"));
 	}
 
 	void on_input(const ExMessage& msg)
@@ -36,7 +36,7 @@ public:
 
 	void on_exit()
 	{
-		std::cout << "ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½" << std::endl;
+		std::cout << "ÍË³öÁËÓÎÏ·½çÃæ" << std::endl;
 	}
 
 private:

@@ -46,14 +46,6 @@ public:
 	};
 
 private:
-    enum class PlayerType
-    {
-        PeaShooter = 0,
-        Sunflower,
-        Invalid
-    };
-
-private:
     POINT pos_img_VS = { 0 };
     POINT pos_img_tip = { 0 };
 };
