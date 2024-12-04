@@ -3,6 +3,9 @@
 #include "scene.h"
 #include "animation.h"
 #include "scene_manager.h"
+#include "peashooter_player.h"
+#include "sunflower_player.h"
+#include "playerid.h"
 
 extern SceneManager sceneManager;
 
@@ -33,6 +36,9 @@ extern Atlas atlas_peashooter_idle_right;
 
 extern IMAGE img_avatar_peashooter;
 extern IMAGE img_avatar_sunflower;
+
+extern Player* player_1;
+extern Player* player_2;
 
 class SelectorScene : public Scene
 {
@@ -240,6 +246,25 @@ public:
 
     void on_exit()
     {
+        switch (player_type_1)
+        {
+            case PlayerType::PeaShooter:
+                player_1 = new PeashooterPlayer();
+                break;
+            case PlayerType::Sunflower:
+                player_1 = new SunflowerPlayer();
+        }
+        player_1->set_id(PlayerID::P1);
+
+        switch (player_type_2)
+        {
+            case PlayerType::PeaShooter:
+                player_2 = new PeashooterPlayer();
+                break;
+            case PlayerType::Sunflower:
+                player_2 = new SunflowerPlayer();
+        }
+        player_2->set_id(PlayerID::P2);
 
     }
 
