@@ -1,6 +1,7 @@
 #include "util.h"
 #include "atlas.h"
 #include "scene.h"
+#include "platform.h"
 #include "menu_scene.h"
 #include "game_scene.h"
 #include "selector_scene.h"
@@ -9,6 +10,8 @@
 #include <graphics.h>
 
 #pragma comment(lib, "Winmm.lib")
+
+bool is_debug = false;
 
 IMAGE img_menu_background;
 
@@ -77,6 +80,15 @@ IMAGE img_winner_bar;
 
 IMAGE img_avatar_peashooter;
 IMAGE img_avatar_sunflower;
+
+Scene* menu_scene = nullptr;
+Scene* game_scene = nullptr;
+Scene* selector_scene = nullptr;
+
+Camera main_camera;
+SceneManager scene_manager;
+
+std::vector<Platform> platform_list;
 
 void flip_atlas(Atlas& src, Atlas& dst)
 {
@@ -178,13 +190,6 @@ void load_game_resources()
 	mciSendString(_T("open ../resources/ui_confirm.wav alias ui_confirm"), NULL, 0, NULL);
 
 }
-
-Scene* menu_scene = nullptr;
-Scene* game_scene = nullptr;
-Scene* selector_scene = nullptr;
-
-Camera main_camera;
-SceneManager scene_manager;
 
 int main()
 {
