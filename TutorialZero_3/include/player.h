@@ -59,6 +59,7 @@ public:
                                 break;
                             case 0x44:
                                 is_right_key_down = true;
+                                break;
                             case 0x57:
                                 on_jump();
                                 break;
@@ -72,6 +73,7 @@ public:
                                 break;
                             case VK_RIGHT:
                                 is_right_key_down = true;
+                                break;
                             case VK_UP:
                                 on_jump();
                                 break;
