@@ -111,7 +111,8 @@ protected:
 protected:
     bool check_if_exceeds_screen()
     {
-
+        return (position.x + size.x <= 0 || position.x >= getwidth()||
+                position.y + size.y <= 0 || position.y >= getheight());
     }
 
 };

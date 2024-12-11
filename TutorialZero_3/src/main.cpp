@@ -1,6 +1,7 @@
 #include "util.h"
 #include "atlas.h"
 #include "scene.h"
+#include "bullet.h"
 #include "platform.h"
 #include "player.h"
 #include "menu_scene.h"
@@ -60,6 +61,8 @@ Atlas atlas_sunflower_die_left;
 Atlas atlas_sunflower_die_right;
 Atlas atlas_peashooter_attack_ex_left;
 Atlas atlas_peashooter_attack_ex_right;
+Atlas atlas_sunflower_attack_left;
+Atlas atlas_sunflower_attack_right;
 Atlas atlas_sunflower_attack_ex_left;
 Atlas atlas_sunflower_attack_ex_right;
 
@@ -89,10 +92,11 @@ Scene *selector_scene = nullptr;
 Camera main_camera;
 SceneManager scene_manager;
 
+std::vector<Bullet *> bullet_list;
 std::vector<Platform> platform_list;
 
-Player* player_1 = nullptr;
-Player* player_2 = nullptr;
+Player *player_1 = nullptr;
+Player *player_2 = nullptr;
 
 void flip_atlas(Atlas &src, Atlas &dst) {
     dst.clear();
@@ -152,7 +156,9 @@ void load_game_resources() {
     atlas_sunflower_run_right.load_from_file(_T("../resources/sunflower_run_%d.png"), 5);
     flip_atlas(atlas_sunflower_run_right, atlas_sunflower_run_left);
     atlas_sunflower_attack_ex_right.load_from_file(_T("../resources/sunflower_attack_ex_%d.png"), 9);
-    flip_atlas(atlas_sunflower_attack_ex_right, atlas_sunflower_attack_ex_left);
+    flip_atlas(atlas_sunflower_attack_right, atlas_sunflower_attack_left);
+    atlas_sunflower_die_right.load_from_file(_T("../resources/sunflower_die_%d.png"), 2);
+    flip_atlas(atlas_sunflower_attack_right, atlas_sunflower_attack_left);
     atlas_sunflower_die_right.load_from_file(_T("../resources/sunflower_die_%d.png"), 2);
     flip_atlas(atlas_sunflower_die_right, atlas_sunflower_die_left);
 

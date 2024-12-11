@@ -44,10 +44,12 @@ public:
 
     bool check_collision(const Vector2& position, const Vector2& size)
     {
-        bool is_collide_x = (max(this->position.x + this->size.x, position.x + size.x) -
-                min(this->position.x, position.x) <= this->size.x + size.x);
-        bool is_collide_y = (max(this->position.y + this->size.y, position.y + size.y) -
-                min(this->position.y, position.y) <= this->size.y + size.y);
+        bool is_collide_x = (std::max(this->position.x + this->size.x, position.x + size.x) -
+                             std::min(this->position.x, position.x) <= this->size.x + size.x);
+        bool is_collide_y = (std::max(this->position.y + this->size.y, position.y + size.y) -
+                             std::min(this->position.y, position.y) <= this->size.y + size.y);
+
+        return is_collide_x && is_collide_y;
     }
 
     void on_update(int delta)
