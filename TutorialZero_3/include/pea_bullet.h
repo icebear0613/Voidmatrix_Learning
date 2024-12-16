@@ -18,8 +18,11 @@ public:
         animation_break.set_atlas(&atlas_pea_break);
         animation_break.set_interval(100);
         animation_break.set_loop(false);
-        animation_break.set_callback([&]() { can_remove = true; });
+        animation_break.set_callback([&]() {
+            can_remove = true;
+        });
     }
+
     ~PeaBullet() = default;
 
     void on_collide()
@@ -57,6 +60,8 @@ public:
             putimage_alpha(camera, (int)position.x, (int)position.y, &img_pea);
         else
             animation_break.on_draw(camera, (int)position.x, (int)position.y);
+
+        Bullet::on_draw(camera);
     }
 
 private:

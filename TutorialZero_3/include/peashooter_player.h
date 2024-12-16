@@ -33,7 +33,9 @@ public:
 
         timer_attack_ex.set_wait_time(attack_ex_duration);
         timer_attack_ex.set_one_shot(true);
-        timer_attack_ex.set_callback([&]() { is_attacking_ex = false; });
+        timer_attack_ex.set_callback([&]() {
+            is_attacking_ex = false;
+        });
 
         timer_spawn_pea_ex.set_wait_time(100);
         timer_spawn_pea_ex.set_callback([&] {
@@ -49,7 +51,6 @@ public:
     {
         Player::on_update(delta);
 
-        std::cout << "PeaShooter is updating..." << std::endl;
         if (is_attacking_ex)
         {
             main_camera.shake(5, 100);
@@ -101,7 +102,9 @@ private:
 
         bullet->set_collide_target(id == PlayerID::P1 ? PlayerID::P2 : PlayerID::P1);
 
-        bullet->set_callback([&]() { mp += 25; });
+        bullet->set_callback([&]() {
+            mp += 25;
+        });
 
         bullet_list.push_back(bullet);
     }

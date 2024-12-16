@@ -23,9 +23,11 @@ public:
         animation_idle.set_interval(50);
 
         animation_explode.set_atlas(&atlas_sun_ex_explode);
-        animation_explode.set_interval(20);
+        animation_explode.set_interval(50);
         animation_explode.set_loop(false);
-        animation_explode.set_callback([&]() { can_remove = true; });
+        animation_explode.set_callback([&]() {
+            can_remove = true;
+        });
 
         IMAGE* frame_idle = animation_idle.get_frame();
         IMAGE* frame_explode = animation_explode.get_frame();
@@ -66,7 +68,7 @@ public:
             can_remove = true;
     }
 
-    void on_draw(const Camera& camera)
+    void on_draw(const Camera& camera) const
     {
         if (valid)
             animation_idle.on_draw(camera, (int)position.x, (int)position.y);
@@ -76,6 +78,8 @@ public:
                                       (int)(position.x + explode_render_offset.x),
                                       (int)(position.y + explode_render_offset.y));
         }
+
+        Bullet::on_draw(camera);
     }
 
     ~SunBulletEX() = default;

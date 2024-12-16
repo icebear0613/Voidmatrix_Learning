@@ -51,6 +51,7 @@ public:
         });
 
         size.x = 96, size.y = 96;
+
         attack_cd = 250;
     }
 
@@ -60,7 +61,6 @@ public:
     {
         Player::on_update(delta);
 
-        std::cout << "SunFlower is updating..." << std::endl;
         if (is_sun_text_visible)
             animation_sun_text.on_update(delta);
     }
@@ -93,7 +93,9 @@ public:
 
         bullet->set_collide_target(id == PlayerID::P1 ? PlayerID::P2 : PlayerID::P1);
 
-        bullet->set_callback([&]() { mp += 35; });
+        bullet->set_callback([&]() {
+            mp += 35;
+        });
 
         bullet_list.push_back(bullet);
     }
@@ -106,13 +108,13 @@ public:
         animation_sun_text.reset();
         is_facing_right ? animation_attack_ex_right.reset() : animation_attack_ex_left.reset();
 
-        Bullet* bullet = new SunBullet();
+        Bullet* bullet = new SunBulletEX();
         Player* target_player = (id == PlayerID::P1 ? player_2 : player_1);
 
         Vector2 bullet_position, bullet_velocity;
         const Vector2& bullet_size = bullet->get_size();
         const Vector2& target_size = target_player->get_size();
-        const Vector2& target_position = target_player->get_size();
+        const Vector2& target_position = target_player->get_position();
         bullet_position.x = target_position.x + (target_size.x - bullet_size.x) / 2;
         bullet_position.y = -size.y;
         bullet_velocity.x = 0;
@@ -123,7 +125,9 @@ public:
 
         bullet->set_collide_target(id == PlayerID::P1 ? PlayerID::P2 : PlayerID::P1);
 
-        bullet->set_callback([&]() { mp += 50; });
+        bullet->set_callback([&]() {
+            mp += 50;
+        });
 
         bullet_list.push_back(bullet);
 

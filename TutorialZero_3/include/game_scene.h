@@ -81,6 +81,19 @@ public:
     {
         player_1->on_update(delta);
         player_2->on_update(delta);
+
+        main_camera.on_update(delta);
+
+        bullet_list.erase(std::remove_if(bullet_list.begin(), bullet_list.end(),
+                                         [](const Bullet* bullet) {
+            bool deletable = bullet->check_can_remove();
+            if (deletable)
+                delete bullet;
+            return deletable;
+        }), bullet_list.end());
+
+        for (Bullet* bullet : bullet_list)
+            bullet->on_update(delta);
     }
 
     void on_draw(const Camera &camera) {
@@ -98,6 +111,9 @@ public:
 
         player_1->on_draw(camera);
         player_2->on_draw(camera);
+
+        for (Bullet* bullet : bullet_list)
+            bullet->on_draw(camera);
     }
 
     void on_input(const ExMessage &msg) {

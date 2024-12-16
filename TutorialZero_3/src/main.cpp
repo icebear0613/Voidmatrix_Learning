@@ -98,7 +98,8 @@ std::vector<Platform> platform_list;
 Player *player_1 = nullptr;
 Player *player_2 = nullptr;
 
-void flip_atlas(Atlas &src, Atlas &dst) {
+void flip_atlas(Atlas &src, Atlas &dst)
+{
     dst.clear();
     for (int i = 0; i < src.get_size(); i++) {
         IMAGE img_flpipped;
@@ -107,7 +108,8 @@ void flip_atlas(Atlas &src, Atlas &dst) {
     }
 }
 
-void load_game_resources() {
+void load_game_resources()
+{
     AddFontResourceEx(_T("../resources/IPix.ttf"), FR_PRIVATE, NULL);
 
     loadimage(&img_menu_background, _T("../resources/menu_background.png"));
