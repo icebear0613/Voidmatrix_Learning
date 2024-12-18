@@ -1,5 +1,6 @@
 #include "player.h"
 #include "resources_manager.h"
+#include "player_state_nodes.h"
 
 #include <cmath>
 
@@ -133,7 +134,15 @@ Player::Player()
     });
 
     {
-        // TODO: 状态机初始化
+        state_machine.register_state("attack", new PlayerAttackState());
+        state_machine.register_state("dead", new PlayerDeadState());
+        state_machine.register_state("fall", new PlayerFallState());
+        state_machine.register_state("idle", new PlayerIdleState());
+        state_machine.register_state("jump", new PlayerJumpState());
+        state_machine.register_state("roll", new PlayerRollState());
+        state_machine.register_state("run", new PlayerRunState());
+
+        state_machine.set_entry("idle");
     }
 }
 
@@ -305,7 +314,5 @@ void Player::update_attack_dir(int x, int y)
         attack_dir = AttackDir::Left;
     else
         attack_dir = AttackDir::Up;
-
-
 
 }

@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 
 #include <vector>
 #include <graphics.h>

@@ -1,5 +1,3 @@
-#pragma once
-
 #include "character.h"
 #include "collision_manager.h"
 
