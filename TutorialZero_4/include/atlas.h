@@ -29,14 +29,13 @@ public:
         img_list.clear();
     }
 
-    int get_size()
+    int get_size() const
     {
         return (int)img_list.size();
     }
 
     IMAGE* get_image(int idx)
     {
-
         if (idx < 0 || idx >= img_list.size())
             return nullptr;
 

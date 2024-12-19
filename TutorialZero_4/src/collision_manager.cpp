@@ -1,4 +1,4 @@
-#include    "collision_manager.h"
+#include "collision_manager.h"
 
 #include <graphics.h>
 

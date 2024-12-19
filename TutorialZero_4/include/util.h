@@ -13,6 +13,7 @@ struct Rect
     int w, h;
 };
 
+// 绘制的图片对象, 目标矩形, 源矩形
 inline void putimage_ex(IMAGE* img, const Rect* rect_dst, const Rect* rect_src = nullptr)
 {
     static BLENDFUNCTION blend_func = { AC_SRC_OVER, 0, 255, AC_SRC_ALPHA };

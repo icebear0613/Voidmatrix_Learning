@@ -16,12 +16,12 @@ public:
 
     void set_wait_time(float val)
     {
-        pass_time = val;
+        wait_time = val;
     }
 
     void set_one_shot(bool flag)
     {
-        shotted = flag;
+        one_shot = flag;
     }
 
     void set_on_timeout(std::function<void()> on_timeout)
@@ -51,7 +51,7 @@ public:
             shotted = true;
             if (can_shot && on_timeout)
                 on_timeout();
-            pass_time = wait_time;
+            pass_time -= wait_time;
         }
     }
 

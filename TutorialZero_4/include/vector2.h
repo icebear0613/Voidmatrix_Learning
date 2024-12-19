@@ -57,7 +57,7 @@ public:
         return sqrt(x * x + y * y);
     }
 
-    Vector2 normalized()
+    Vector2 normalize()
     {
         float len = length();
 

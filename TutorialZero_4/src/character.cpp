@@ -68,7 +68,7 @@ void Character::on_update(float delta)
     if (is_invulnerable)
         timer_invulnerable_blink.on_update(delta);
 
-    if (!is_invulnerable)
+    if (!current_animation)
         return;
 
     Animation& animation = (is_facing_left ? current_animation->left : current_animation->right);

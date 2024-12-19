@@ -125,7 +125,7 @@ private:
 
         Frame() = default;
 
-        Frame(IMAGE *image, const Rect &rect_src)
+        Frame(IMAGE *image, const Rect& rect_src)
                 : image(image), rect_src(rect_src) {}
 
         ~Frame() = default;

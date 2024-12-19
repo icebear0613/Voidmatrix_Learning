@@ -2,7 +2,7 @@
 
 #include "state_node.h"
 
-#include <iostream>
+#include <string>
 #include <graphics.h>
 #include <unordered_map>
 

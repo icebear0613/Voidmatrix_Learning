@@ -7,7 +7,7 @@
 Player::Player()
 {
     is_facing_left = false;
-    position = { 250, 250 };
+    position = { 250, 200 };
     logic_height = 120;
 
     hit_box->set_size({ 150, 150 });
@@ -17,7 +17,7 @@ Player::Player()
     hit_box->set_layer_dst(CollisionLayer::Enemy);
 
     hurt_box->set_layer_src(CollisionLayer::Player);
-    hurt_box->set_layer_dst(CollisionLayer::Enemy);
+    hurt_box->set_layer_dst(CollisionLayer::None);
 
     hit_box->set_enable(false);
     hurt_box->set_on_collide([&]() {
@@ -39,13 +39,13 @@ Player::Player()
     {
         AnimationGroup& animation_attack = animation_pool["attack"];
 
-        Animation &animation_attack_left = animation_attack.left;
+        Animation& animation_attack_left = animation_attack.left;
         animation_attack_left.set_interval(0.05f);
         animation_attack_left.set_loop(false);
         animation_attack_left.set_anchor_mode(Animation::AnchorMode::BottomCentered);
         animation_attack_left.add_frame(ResourcesManager::instance()->find_image("player_attack_left"), 5);
 
-        Animation &animation_attack_right = animation_attack.right;
+        Animation& animation_attack_right = animation_attack.right;
         animation_attack_right.set_interval(0.05f);
         animation_attack_right.set_loop(false);
         animation_attack_right.set_anchor_mode(Animation::AnchorMode::BottomCentered);
@@ -54,17 +54,65 @@ Player::Player()
 
     {
         AnimationGroup& animation_dead = animation_pool["dead"];
-        Animation &animation_dead_left = animation_dead.left;
+
+        Animation& animation_dead_left = animation_dead.left;
         animation_dead_left.set_interval(0.1f);
         animation_dead_left.set_loop(false);
         animation_dead_left.set_anchor_mode(Animation::AnchorMode::BottomCentered);
         animation_dead_left.add_frame(ResourcesManager::instance()->find_image("player_dead_left"), 6);
 
-        Animation &animation_dead_right = animation_dead.right;
+        Animation& animation_dead_right = animation_dead.right;
         animation_dead_right.set_interval(0.1f);
         animation_dead_right.set_loop(false);
         animation_dead_right.set_anchor_mode(Animation::AnchorMode::BottomCentered);
         animation_dead_right.add_frame(ResourcesManager::instance()->find_image("player_dead_right"), 6);
+    }
+
+    {
+        AnimationGroup& animation_fall = animation_pool["fall"];
+
+        Animation& animation_fall_left = animation_fall.left;
+        animation_fall_left.set_interval(0.15f);
+        animation_fall_left.set_loop(true);
+        animation_fall_left.set_anchor_mode(Animation::AnchorMode::BottomCentered);
+        animation_fall_left.add_frame(ResourcesManager::instance()->find_image("player_fall_left"), 5);
+
+        Animation& animation_fall_right = animation_fall.right;
+        animation_fall_right.set_interval(0.15f);
+        animation_fall_right.set_loop(true);
+        animation_fall_right.set_anchor_mode(Animation::AnchorMode::BottomCentered);
+        animation_fall_right.add_frame(ResourcesManager::instance()->find_image("player_fall_right"), 5);
+    }
+
+    {
+        AnimationGroup& animation_idle = animation_pool["idle"];
+
+        Animation& animation_idle_left = animation_idle.left;
+        animation_idle_left.set_interval(0.15f);
+        animation_idle_left.set_loop(true);
+        animation_idle_left.set_anchor_mode(Animation::AnchorMode::BottomCentered);
+        animation_idle_left.add_frame(ResourcesManager::instance()->find_image("player_idle_left"), 5);
+
+        Animation& animation_idle_right = animation_idle.right;
+        animation_idle_right.set_interval(0.15f);
+        animation_idle_right.set_loop(true);
+        animation_idle_right.set_anchor_mode(Animation::AnchorMode::BottomCentered);
+        animation_idle_right.add_frame(ResourcesManager::instance()->find_image("player_idle_right"), 5);
+    }
+
+    {
+        AnimationGroup& animation_jump = animation_pool["jump"];
+
+        Animation& animation_jump_left = animation_jump.left;
+        animation_jump_left.set_interval(0.15f);
+        animation_jump_left.set_loop(false);
+        animation_jump_left.set_anchor_mode(Animation::AnchorMode::BottomCentered);
+        animation_jump_left.add_frame(ResourcesManager::instance()->find_image("player_jump_left"), 5);
+
+        Animation& animation_jump_right = animation_jump.right;
+        animation_jump_right.set_interval(0.15f);
+        animation_jump_right.set_loop(false);
+        animation_jump_right.add_frame(ResourcesManager::instance()->find_image("player_jump_left"), 5);
     }
 
     {
@@ -314,5 +362,4 @@ void Player::update_attack_dir(int x, int y)
         attack_dir = AttackDir::Left;
     else
         attack_dir = AttackDir::Up;
-
 }
