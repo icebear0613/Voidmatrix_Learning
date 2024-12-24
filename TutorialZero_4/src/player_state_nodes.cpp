@@ -12,7 +12,7 @@ PlayerAttackState::PlayerAttackState()
     });
 }
 
-void PlayerAttackState::on_entry()
+void PlayerAttackState::on_enter()
 {
     CharacterManager::instance()->get_player()->set_animation("attack");
 
@@ -98,7 +98,7 @@ PlayerDeadState::PlayerDeadState()
     });
 }
 
-void PlayerDeadState::on_entry()
+void PlayerDeadState::on_enter()
 {
     CharacterManager::instance()->get_player()->set_animation("dead");
 
@@ -110,7 +110,7 @@ void PlayerDeadState::on_update(float delta)
     timer.on_update(delta);
 }
 
-void PlayerFallState::on_entry()
+void PlayerFallState::on_enter()
 {
     CharacterManager::instance()->get_player()->set_animation("fall");
 }
@@ -130,7 +130,7 @@ void PlayerFallState::on_update(float delta)
         player->switch_state("attack");
 }
 
-void PlayerIdleState::on_entry()
+void PlayerIdleState::on_enter()
 {
     CharacterManager::instance()->get_player()->set_animation("idle");
 }
@@ -153,7 +153,7 @@ void PlayerIdleState::on_update(float delta)
         player->switch_state("run");
 }
 
-void PlayerJumpState::on_entry()
+void PlayerJumpState::on_enter()
 {
     CharacterManager::instance()->get_player()->set_animation("jump");
 
@@ -185,7 +185,7 @@ PlayerRollState::PlayerRollState()
     });
 }
 
-void PlayerRollState::on_entry()
+void PlayerRollState::on_enter()
 {
     CharacterManager::instance()->get_player()->set_animation("roll");
 
@@ -220,7 +220,7 @@ void PlayerRollState::on_exit()
     CharacterManager::instance()->get_player()->get_hurt_box()->set_enable(true);
 }
 
-void PlayerRunState::on_entry()
+void PlayerRunState::on_enter()
 {
     CharacterManager::instance()->get_player()->set_animation("run");
 

@@ -2,6 +2,7 @@
 #include "character_manager.h"
 #include "resources_manager.h"
 #include "collision_manager.h"
+#include "enemy_state_nodes.h"
 
 Enemy::Enemy()
 {
@@ -238,7 +239,20 @@ Enemy::Enemy()
     }
 
     {
-        // 状态机初始化
+        state_machine.register_state("aim", new EnemyAimState());
+        state_machine.register_state("dash_in_air", new EnemyDashInAirState());
+        state_machine.register_state("dash_on_floor", new EnemyDashOnFloorState());
+        state_machine.register_state("dead", new EnemyDeadState());
+        state_machine.register_state("fall", new EnemyFallState());
+        state_machine.register_state("idle", new EnemyIdleState());
+        state_machine.register_state("jump", new EnemyJumpState());
+        state_machine.register_state("run", new EnemyRunState());
+        state_machine.register_state("squat", new EnemySquatState());
+        state_machine.register_state("throw_barb", new EnemyThrowBarbState());
+        state_machine.register_state("throw_silk", new EnemyThrowSilkState());
+        state_machine.register_state("throw_sword", new EnemyThrowSwordState());
+
+        state_machine.set_entry("idle");
     }
 }
 

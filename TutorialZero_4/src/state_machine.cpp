@@ -10,7 +10,7 @@ void StateMachine::on_update(float delta)
 
     if (need_init)
     {
-        current_state->on_entry();
+        current_state->on_enter();
         need_init = false;
     }
 
@@ -28,7 +28,7 @@ void StateMachine::switch_to(const std::string& id)
         current_state->on_exit();
     current_state = state_pool[id];
     if (current_state)
-        current_state->on_entry();
+        current_state->on_enter();
 }
 
 void StateMachine::register_state(const std::string& id, StateNode* state_node)

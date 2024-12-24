@@ -13,7 +13,7 @@ public:
     void on_update(float delta) override;
     void on_render() override;
 
-    void on_hurt();
+    void on_hurt() override;
 
     void set_facing_left(bool flag)
     {
@@ -30,7 +30,7 @@ public:
         is_dashing_in_air = flag;
     }
 
-    bool get_dashing_in_air()
+    bool get_dashing_in_air() const
     {
         return is_dashing_in_air;
     }

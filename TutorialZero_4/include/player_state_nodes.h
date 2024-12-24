@@ -9,7 +9,7 @@ public:
     PlayerAttackState();
     ~PlayerAttackState() = default;
 
-    void on_entry() override;
+    void on_enter() override;
     void on_update(float delta) override;
     void on_exit() override;
 
@@ -27,7 +27,7 @@ public:
     PlayerDeadState();
     ~PlayerDeadState() = default;
 
-    void on_entry() override;
+    void on_enter() override;
     void on_update(float delta) override;
 
 private:
@@ -41,7 +41,7 @@ public:
     PlayerFallState() = default;
     ~PlayerFallState() = default;
 
-    void on_entry() override;
+    void on_enter() override;
     void on_update(float delta) override;
 
 };
@@ -52,7 +52,7 @@ public:
     PlayerIdleState() = default;
     ~PlayerIdleState() = default;
 
-    void on_entry() override;
+    void on_enter() override;
     void on_update(float delta) override;
 
 };
@@ -63,7 +63,7 @@ public:
     PlayerJumpState() = default;
     ~PlayerJumpState() = default;
 
-    void on_entry() override;
+    void on_enter() override;
     void on_update(float delta) override;
 };
 
@@ -73,7 +73,7 @@ public:
     PlayerRollState();
     ~PlayerRollState() = default;
 
-    void on_entry() override;
+    void on_enter() override;
     void on_update(float delta) override;
     void on_exit() override;
 
@@ -88,7 +88,7 @@ public:
     PlayerRunState() = default;
     ~PlayerRunState() = default;
 
-    void on_entry() override;
+    void on_enter() override;
     void on_update(float delta) override;
     void on_exit() override;
 
